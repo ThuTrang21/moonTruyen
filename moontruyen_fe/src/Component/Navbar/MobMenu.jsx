@@ -49,12 +49,12 @@ export const MobMenu = ({ links }) => {
         animate={open ? "enter" : "exit"}
         variants={menuDrawer}
         className="fixed left-0 right-0 top-16  overflow-y-auto bg-[#e8f9fb] backdrop-blur text-gray-500 p-6
-        dark:bg-black dark:text-white"
+        dark:bg-black dark:text-white "
         style={{
           maxHeight: "calc(100vh - 64px)",
         }}
       >
-        <div className="pb-5">
+        <div className="pb-5 dark:border-t-[1px] dark:border-gray-600">
           <ul>
             {links?.map(({ name, subMenu }, i) => {
               const hasSubMenu = subMenu?.length > 0;
