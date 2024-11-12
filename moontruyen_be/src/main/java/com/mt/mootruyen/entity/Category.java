@@ -1,6 +1,8 @@
 package com.mt.mootruyen.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +24,10 @@ public class Category {
 
     private String name;
 
-    @ManyToMany(mappedBy = "categories")
-    private List<Story> stories;
+    private String description;
 
+    @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
+    private List<Story> stories;
+    private String slug;
 }

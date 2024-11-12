@@ -1,6 +1,7 @@
 package com.mt.mootruyen.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,8 +27,18 @@ public class Chapter {
 
     @ManyToOne
     @JoinColumn(name = "story_id")
+    @JsonIgnore
     private Story story;
+
+
+    private String slug;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    @PreUpdate
+    private void generateSlug(){
+        this.slug = "chuong" + this.chapterNumber;
+    }
 }
