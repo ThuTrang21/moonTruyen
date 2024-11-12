@@ -1,6 +1,9 @@
 package com.mt.mootruyen.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.mt.mootruyen.utils.SlugUntils;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,8 +37,16 @@ public class Story {
     private List<Category> categories;
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"content","createdAt","updatedAt"})
     private List<Chapter> chapters;
 
     private int views;
-    private boolean isCompleted;
+    private Boolean isCompleted;
+    private String slug;
+
+    @PrePersist
+    @PreUpdate
+    private void generateSlug(){
+        this.slug = SlugUntils.generateSlugFromName(this.title);
+    }
 }
