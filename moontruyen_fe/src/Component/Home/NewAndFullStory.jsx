@@ -13,7 +13,7 @@ const NewAndFullStory = () => {
   };
 
   const newStories = Array(12).fill(1); 
-  const fullStories = Array(20).fill(1); 
+  const fullStories = Array(7).fill(1); 
 
 
   const storiesToShow = activeTab === "new" ? newStories : fullStories;
