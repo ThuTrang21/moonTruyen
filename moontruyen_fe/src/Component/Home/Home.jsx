@@ -12,11 +12,29 @@ const Home = () => {
         <SwiperSlideItem />
       </section>
       <section className=" flex flex-wrap p-10 lg:py-10 lg:px-20 pt-10 ">
-        <div className="w-full lg:w-[70%] flex flex-col">
-          <div>
+        <div className="w-full lg:w-[70%]">
+          <div className="shadow-md mr-3 pb-3">
             <NewAndFullStory />
           </div>
-          <div>
+          
+        </div>
+        <div className="w-[30%] hidden lg:block">
+          <TopStory />
+        </div>
+        <div className="shadow-inner mr-3 mt-3">
+            <RecommendedStories />
+          </div>
+      </section>
+      <section>
+        <Footer />
+      </section>
+
+      {/* <section className=" flex flex-wrap p-10 lg:py-10 lg:px-20 pt-10 ">
+        <div className="w-full lg:w-[70%] flex flex-col ">
+          <div className="shadow-md mr-3 pb-3">
+            <NewAndFullStory />
+          </div>
+          <div className="shadow-inner mr-3 mt-3">
             <RecommendedStories />
           </div>
         </div>
@@ -26,7 +44,7 @@ const Home = () => {
       </section>
       <section>
         <Footer/>
-      </section>
+      </section> */}
     </div>
   );
 };

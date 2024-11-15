@@ -37,7 +37,7 @@ const TopStory = () => {
               </TabList>
             </Box>
             <TabPanel value="1" className="shadow-lg">
-              {[1, 1, 1, 1].map((item) => (
+              {[1, 1, 1, 1,1,1,1,1,1,1].map((item) => (
                     <TopStoryItem/>
               ))}
             </TabPanel>

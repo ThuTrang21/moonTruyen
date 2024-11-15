@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StoryCard from "../Story/StoryCard";
 import { useNavigate } from "react-router-dom";
+import { Button, useMediaQuery } from "@mui/material";
 
 const NewAndFullStory = () => {
   // const navigate=useNavigate();
@@ -25,6 +26,8 @@ const NewAndFullStory = () => {
   //     navigate("/"); 
   //   }
   // };
+  const isLargeScreen = useMediaQuery("(min-width:1024px)");
+
   return (
     <div className="px-6">
       <div className="flex justify-start space-x-4">
@@ -55,13 +58,19 @@ const NewAndFullStory = () => {
           : displayStories.map((item) => <StoryCard />)}
       </div>
       {storiesToShow.length >= 12 && !showAll && (
-        <div className="flex justify-center mt-4 mr-[2rem]">
-          <button
-            // onClick={() => handleSeeMore()}
-            className="px-4 py-2 bg-cyan-300 text-white rounded"
-          >
-            Xem Thêm
-          </button>
+        <div className="flex justify-center mt-4 mr-[2.4rem]">
+          <Button
+              variant="contained"
+              className="flex items-center justify-center "
+              sx={{
+                fontSize: isLargeScreen ? "14px" : "10px",
+                padding: isLargeScreen ? "4px 8px" : "4px 8px",
+                height: isLargeScreen ? "2.5rem" : "2rem",
+                minWidth: isLargeScreen ? "7rem" : "5rem",
+              }}
+            >
+              Xem Thêm
+            </Button>
         </div>
       )}
     </div>
