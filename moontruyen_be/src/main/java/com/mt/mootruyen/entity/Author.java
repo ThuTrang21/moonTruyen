@@ -1,6 +1,8 @@
 package com.mt.mootruyen.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mt.mootruyen.utils.SlugUntils;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,5 +27,13 @@ public class Author {
     private String avatar;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Story> stories;
+    private String slug;
+
+    @PrePersist
+    @PreUpdate
+    private void generateSlug(){
+        this.slug = SlugUntils.generateSlugFromName(this.name);
+    }
 }
