@@ -73,7 +73,7 @@ const Footer = () => {
         <div
           className="bottom  px-6 bg-[#23c2d6] dark:bg-black opacity-[0.75] flex items-center"
         >
-          <p className="font-bold">Copyright © 2024 D4T</p>
+          <p className="font-bold">Copyright © 2024 MOONTRUYEN</p>
         </div>
       </div>
     </div>
