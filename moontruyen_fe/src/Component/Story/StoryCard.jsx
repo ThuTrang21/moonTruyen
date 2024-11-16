@@ -1,9 +1,18 @@
 import { Card, Chip } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const StoryCard = () => {
+  const navigate=useNavigate();
+  const handleNavigateToRestaurant = () => {
+
+      navigate("/restaurant/title");
+
+  };
   return (
-    <Card className="w-[7rem] lg:w-[10rem] cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg will-change-transform">
+    <Card 
+    onClick={handleNavigateToRestaurant}
+    className="w-[7rem] lg:w-[10rem] cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg will-change-transform">
       <div className="relative">
         <img
           className="w-full lg:h-[16rem] rounded-t-md object-cover"

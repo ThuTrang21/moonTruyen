@@ -3,7 +3,6 @@ import SwiperSlideItem from "./SwiperSlideItem";
 import NewAndFullStory from "./NewAndFullStory";
 import TopStory from "./TopStory";
 import RecommendedStories from "./RecommendedStories";
-import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
       </section>
       <section className=" flex flex-wrap p-10 lg:py-10 lg:px-20 pt-10 ">
         <div className="w-full lg:w-[70%]">
-          <div className="shadow-md mr-3 pb-3">
+          <div className="shadow-md mr-3 pb-7">
             <NewAndFullStory />
           </div>
           
@@ -25,9 +24,7 @@ const Home = () => {
             <RecommendedStories />
           </div>
       </section>
-      <section>
-        <Footer />
-      </section>
+      
 
       {/* <section className=" flex flex-wrap p-10 lg:py-10 lg:px-20 pt-10 ">
         <div className="w-full lg:w-[70%] flex flex-col ">

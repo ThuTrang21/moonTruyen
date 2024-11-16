@@ -10,8 +10,10 @@ import DesktopMenu from "./DesktopMenu";
 import PersonIcon from "@mui/icons-material/Person";
 import { MobMenu } from "./MobMenu";
 import DarkMode from "./DarkMode";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate=useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -67,11 +69,13 @@ export const Navbar = () => {
             src={logo}
             alt=""
             className="w-44 sm:cursor-pointer dark:hidden"
+            onClick={() => navigate("/")}
           />
           <img
             src={logoLight}
             alt=""
             className="w-44 sm:cursor-pointer hidden dark:block"
+            onClick={() => navigate("/")}
           />
         </div>
 
