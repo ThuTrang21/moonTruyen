@@ -1,4 +1,4 @@
-package com.mt.mootruyen.dto.request;
+package com.mt.mootruyen.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
