@@ -1,7 +1,7 @@
 package com.mt.mootruyen.controller;
 
 
-import com.mt.mootruyen.dto.request.ApiResponse;
+import com.mt.mootruyen.dto.response.ApiResponse;
 import com.mt.mootruyen.dto.request.ChapterCreationRequest;
 import com.mt.mootruyen.dto.request.ChapterUpdatingRequest;
 import com.mt.mootruyen.entity.Chapter;
@@ -52,7 +52,7 @@ public class ChapterController {
                 .build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("{chapterId}")
     ApiResponse<String> deleteChapter(@PathVariable String chapterId) {
         chapterService.deleteChapter(chapterId);
         return ApiResponse.<String>builder()

@@ -1,7 +1,7 @@
 package com.mt.mootruyen.controller;
 
 
-import com.mt.mootruyen.dto.request.ApiResponse;
+import com.mt.mootruyen.dto.response.ApiResponse;
 import com.mt.mootruyen.dto.request.CategoryCreationRequest;
 import com.mt.mootruyen.dto.request.CategoryUdatingRequest;
 import com.mt.mootruyen.entity.Category;

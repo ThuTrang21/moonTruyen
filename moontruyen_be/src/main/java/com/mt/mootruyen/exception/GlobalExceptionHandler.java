@@ -1,6 +1,6 @@
 package com.mt.mootruyen.exception;
 
-import com.mt.mootruyen.dto.request.ApiResponse;
+import com.mt.mootruyen.dto.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

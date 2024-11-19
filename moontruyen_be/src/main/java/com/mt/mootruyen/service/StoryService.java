@@ -2,6 +2,7 @@ package com.mt.mootruyen.service;
 
 import com.mt.mootruyen.dto.request.StoryCreationRequest;
 import com.mt.mootruyen.dto.request.StoryUpdateRequest;
+import com.mt.mootruyen.dto.response.PageResponse;
 import com.mt.mootruyen.entity.Author;
 import com.mt.mootruyen.entity.Category;
 import com.mt.mootruyen.entity.Story;
@@ -12,6 +13,9 @@ import com.mt.mootruyen.repository.AuthorRepository;
 import com.mt.mootruyen.repository.CategoryRepository;
 import com.mt.mootruyen.repository.StoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +33,20 @@ public class StoryService {
     @Autowired
     private StoryMapper storyMapper;
 
-    public List<Story> getAllStories(){
-        return storyRepository.findAll();
+    public PageResponse<Story> getAllStories(int page, int size){
+        Sort sort = Sort.by("id").descending();
+        Pageable pageable = PageRequest.of(page - 1, size, sort);
+
+        var pageData = storyRepository.findAll(pageable);
+
+
+        return PageResponse.<Story>builder()
+                .currentPage(page)
+                .pageSize(pageData.getSize())
+                .totalPages(pageData.getTotalPages())
+                .totalElements(pageData.getTotalElements())
+                .data(pageData.getContent())
+                .build();
     }
 
     public Story getStoryById(String storyId){
