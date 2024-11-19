@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const StoryCard = () => {
   const navigate=useNavigate();
-  const handleNavigateToRestaurant = () => {
+  const handleNavigateToStory = () => {
 
-      navigate("/restaurant/title");
+      navigate("/title");
 
   };
   return (
     <Card 
-    onClick={handleNavigateToRestaurant}
+    onClick={handleNavigateToStory}
     className="w-[7rem] lg:w-[10rem] cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg will-change-transform">
       <div className="relative">
         <img

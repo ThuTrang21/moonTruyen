@@ -1,0 +1,80 @@
+/* Container for 3D perspective */
+.book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 700px;
+ 
+  }
+  
+  /* 3D Book styles */
+  .book {
+    width: 190px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-8deg);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Front cover of the book */
+  .book > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 300px;
+    background-color: #01060f;
+    border-radius: 0 2px 2px 0;
+    transform: translateZ(27px);
+    box-shadow: 5px 5px 20px #a8a8a8;
+  }
+  
+  /* Spine of the book */
+  .book::before {
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 3px;
+    width: 18px;
+    height: 293px;
+    transform: translateX(185px) rotateY(39deg);
+    background: linear-gradient(
+      90deg,
+      #fff 0%,
+      #f9f9f9 5%,
+      #fff 10%,
+      #f9f9f9 15%,
+      #fff 20%,
+      #f9f9f9 25%,
+      #fff 30%,
+      #f9f9f9 35%,
+      #fff 40%,
+      #f9f9f9 45%,
+      #fff 50%,
+      #f9f9f9 55%,
+      #fff 60%,
+      #f9f9f9 65%,
+      #fff 70%,
+      #f9f9f9 75%,
+      #fff 80%,
+      #f9f9f9 85%,
+      #fff 90%,
+      #f9f9f9 95%,
+      #fff 100%
+    );
+  }
+  
+  /* Back cover of the book */
+  .book::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 205px;
+    height: 300px;
+    background-color: #01060f;
+    border-radius: 0 2px 2px 0;
+    box-shadow: -10px 0 50px 10px #afaeae;
+  }
+  

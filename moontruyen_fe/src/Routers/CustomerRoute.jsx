@@ -14,7 +14,7 @@ const CustomerRoute = () => {
         <Routes>
           <Route path='/' element={<Home/>}/>
           {/* <Route path='/account/:register' element={<Home/>}/> */}
-          <Route path='/restaurant/title' element={<StoryDetail/>}/>
+          <Route path='/title' element={<StoryDetail/>}/>
         </Routes>
         </div>
         

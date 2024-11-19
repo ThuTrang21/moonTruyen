@@ -4,9 +4,8 @@ import { IconButton } from "@mui/material";
 
 const DesktopMenu = ({ link, isOpen, onToggle }) => {
   const hasSubMenu = link?.subMenu?.length > 0;
-
   return (
-    <li className="pt-1 relative">
+    <li className="pt-2 relative">
       <span
         onClick={onToggle}
         className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-xl hover:text-white"

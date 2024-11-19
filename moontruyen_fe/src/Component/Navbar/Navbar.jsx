@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../../assets/logo.png";
 import logoLight from "../../assets/logoLight.png";
 import { Avatar, IconButton } from "@mui/material";
@@ -15,9 +15,27 @@ import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
   const navigate=useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
+  const navbarRef = useRef(null);
+
   const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex(openIndex === index ? null : index); 
   };
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setOpenIndex(null); 
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    // Cleanup khi component unmount
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   const links = [
     {
       name: "Danh sách",
@@ -62,7 +80,7 @@ export const Navbar = () => {
     },
   ];
   return (
-    <div className="py-5 bg-primary flex items-center h-16 inset-0 dark:bg-black dark:text-white duration-200">
+    <div ref={navbarRef} className="relative py-5 bg-primary flex items-center h-16 inset-0 dark:bg-black dark:text-white duration-200">
       <div className="px-3.5 flex items-center mx-auto w-full max-w-7xl">
         <div className="flex items-center gap-x-3 z-[999] relative">
           <img
@@ -118,11 +136,12 @@ export const Navbar = () => {
               />
             </IconButton>
           )}
-          <div className="lg:hidden">
-            <MobMenu links={links} />
-          </div>
+         
         </div>
       </div>
+      <div className="lg:hidden z-10">
+            <MobMenu links={links} />
+          </div>
     </div>
   );
 };

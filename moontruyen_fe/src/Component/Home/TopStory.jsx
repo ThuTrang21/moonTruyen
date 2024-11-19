@@ -4,7 +4,6 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { div } from "framer-motion/client";
 import TopStoryItem from "./TopStoryItem";
 
 const TopStory = () => {
@@ -17,9 +16,9 @@ const TopStory = () => {
   return (
     <div className="flex flex-col">
       <div className="border-b-[2px] dark:border-gray-400">
-        <p className="py-2 px-3">TOP TRUYỆN</p>
+        <p className="py-2 px-5">TOP TRUYỆN</p>
       </div>
-      <div className="w-full">
+      <div className="w-full shadow-md">
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={value}>
             <Box>
@@ -36,15 +35,15 @@ const TopStory = () => {
                 <Tab label="Tháng" value="3" />
               </TabList>
             </Box>
-            <TabPanel value="1" className="shadow-lg">
-              {[1, 1, 1, 1,1,1,1,1,1,1].map((item) => (
+            <TabPanel value="1">
+              {[1, 1, 1].map((item) => (
                     <TopStoryItem/>
               ))}
             </TabPanel>
-            <TabPanel value="2" className="shadow-lg">{[1, 1, 1].map((item) => (
+            <TabPanel value="2" >{[1, 1].map((item) => (
                     <TopStoryItem/>
               ))}</TabPanel>
-            <TabPanel value="3" className="shadow-lg">{[1, 1].map((item) => (
+            <TabPanel value="3" >{[1].map((item) => (
                     <TopStoryItem/>
               ))}</TabPanel>
           </TabContext>

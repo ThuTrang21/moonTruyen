@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Button, useMediaQuery } from "@mui/material";
 
 const NewAndFullStory = () => {
-  // const navigate=useNavigate();
   const [activeTab, setActiveTab] = useState("new");
   const [showAll, setShowAll] = useState(false);
 
@@ -13,19 +12,13 @@ const NewAndFullStory = () => {
     setShowAll(false); 
   };
 
-  const newStories = Array(12).fill(1); 
+  const newStories = Array(16).fill(1); 
   const fullStories = Array(7).fill(1); 
 
 
   const storiesToShow = activeTab === "new" ? newStories : fullStories;
-  const displayStories = storiesToShow.slice(0, 12);
-  // const handleSeeMore = () => {
-  //   if (activeTab === "new") {
-  //     navigate("/"); 
-  //   } else {
-  //     navigate("/"); 
-  //   }
-  // };
+  const displayStories = storiesToShow.slice(0, 16);
+
   const isLargeScreen = useMediaQuery("(min-width:1024px)");
 
   return (
@@ -52,13 +45,13 @@ const NewAndFullStory = () => {
           Truyện Full
         </button>
       </div>
-      <div className="mt-6 flex flex-wrap items-center justify-start gap-3 ">
+      <div className="mt-6 flex pl-5 flex-wrap items-center justify-start gap-3 ">
         {activeTab === "new"
           ? displayStories.map((item) => <StoryCard />)
           : displayStories.map((item) => <StoryCard />)}
       </div>
-      {storiesToShow.length >= 12 && !showAll && (
-        <div className="flex justify-center mt-4 mr-[2.4rem]">
+      {storiesToShow.length >= 16 && !showAll && (
+        <div className="flex justify-center mt-4">
           <Button
               variant="contained"
               className="flex items-center justify-center "
