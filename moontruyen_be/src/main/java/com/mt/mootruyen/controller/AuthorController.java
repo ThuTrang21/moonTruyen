@@ -1,7 +1,7 @@
 package com.mt.mootruyen.controller;
 
 
-import com.mt.mootruyen.dto.request.ApiResponse;
+import com.mt.mootruyen.dto.response.ApiResponse;
 import com.mt.mootruyen.dto.request.AuthorCreationRequest;
 import com.mt.mootruyen.dto.request.AuthorUpdateRequest;
 import com.mt.mootruyen.entity.Author;

@@ -1,8 +1,9 @@
 package com.mt.mootruyen.controller;
 
-import com.mt.mootruyen.dto.request.ApiResponse;
+import com.mt.mootruyen.dto.response.ApiResponse;
 import com.mt.mootruyen.dto.request.StoryCreationRequest;
 import com.mt.mootruyen.dto.request.StoryUpdateRequest;
+import com.mt.mootruyen.dto.response.PageResponse;
 import com.mt.mootruyen.entity.Story;
 import com.mt.mootruyen.service.StoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,11 @@ public class StoryController {
     private StoryService storyService;
 
     @GetMapping
-    ApiResponse<List<Story>> getAllStories() {
-        return ApiResponse.<List<Story>>builder()
-                .data(storyService.getAllStories())
+    ApiResponse<PageResponse<Story>> getAllStories(
+            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+            @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
+        return ApiResponse.<PageResponse<Story>>builder()
+                .data(storyService.getAllStories(page,size))
                 .build();
     }
     @GetMapping("/id/{storyId}")
