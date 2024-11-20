@@ -3,6 +3,8 @@ package com.mt.mootruyen.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -29,4 +31,6 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

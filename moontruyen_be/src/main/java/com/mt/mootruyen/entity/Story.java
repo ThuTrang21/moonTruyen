@@ -7,6 +7,8 @@ import com.mt.mootruyen.utils.SlugUntils;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -49,4 +51,6 @@ public class Story {
     private void generateSlug(){
         this.slug = SlugUntils.generateSlugFromName(this.title);
     }
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

@@ -14,6 +14,9 @@ public enum ErrorCode {
     CATEGORY_EXISTED(409,"Category already existed", HttpStatus.CONFLICT),
     CHAPTER_NOT_FOUND(404,"Chapter not found", HttpStatus.NOT_FOUND),
     CHAPTER_EXISTED(409,"Chapter already existed", HttpStatus.CONFLICT),
+    USER_NOT_FOUND(404,"User not found", HttpStatus.NOT_FOUND),
+    USERNAME_EXISTED(409,"Username already existed", HttpStatus.CONFLICT),
+
     ;
     ErrorCode(int code, String message, HttpStatusCode statusCode){
         this.code = code;

@@ -20,35 +20,35 @@ public class ChapterController {
     @GetMapping("/story/{storyId}")
     ApiResponse<List<Chapter>> getAllChaptersByStoryId(@PathVariable String storyId) {
         return ApiResponse.<List<Chapter>>builder()
-                .data(chapterService.getAllChaptersByStoryId(storyId))
+                .result(chapterService.getAllChaptersByStoryId(storyId))
                 .build();
     }
 
     @GetMapping("/story/{storySlug}")
     ApiResponse<List<Chapter>> getChapterBySlug(@PathVariable String storySlug) {
         return ApiResponse.<List<Chapter>>builder()
-                .data(chapterService.getAllChaptersByStorySlug(storySlug))
+                .result(chapterService.getAllChaptersByStorySlug(storySlug))
                 .build();
     }
 
     @GetMapping("/id/{chapterId}")
     ApiResponse<Chapter> getChapterById(@PathVariable String chapterId) {
         return ApiResponse.<Chapter>builder()
-                .data(chapterService.getChapterById(chapterId))
+                .result(chapterService.getChapterById(chapterId))
                 .build();
     }
 
     @PostMapping
     ApiResponse<Chapter> createChapter(@RequestBody ChapterCreationRequest request) {
         return ApiResponse.<Chapter>builder()
-                .data(chapterService.createChapter(request))
+                .result(chapterService.createChapter(request))
                 .build();
     }
 
     @PutMapping("{chapterId}")
     ApiResponse<Chapter> updateChapter(@RequestBody ChapterUpdatingRequest request, @PathVariable String chapterId) {
         return ApiResponse.<Chapter>builder()
-                .data(chapterService.updateChapter(request, chapterId))
+                .result(chapterService.updateChapter(request, chapterId))
                 .build();
     }
 

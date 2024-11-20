@@ -18,7 +18,7 @@ public class ApiResponse<T>{
     private int code = 200;
     @Builder.Default
     private String message = "Success";
-    private T data;
+    private T result;
     @Builder.Default
     private LocalDateTime timestamp = LocalDateTime.now();
 }

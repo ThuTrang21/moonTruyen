@@ -20,35 +20,35 @@ public class AuthorController {
     @GetMapping
     ApiResponse<List<Author>> getAllAuthors() {
         return ApiResponse.<List<Author>>builder()
-                .data(authorService.getAllAuthors())
+                .result(authorService.getAllAuthors())
                 .build();
     }
 
     @GetMapping("/id/{authorId}")
     ApiResponse<Author> getAuthorById(@PathVariable("authorId") String authorId) {
         return ApiResponse.<Author>builder()
-                .data(authorService.getAuthorById(authorId))
+                .result(authorService.getAuthorById(authorId))
                 .build();
     }
 
     @GetMapping("{slug}")
     ApiResponse<Author> getAuthorBySlug(@PathVariable("slug") String slug) {
         return ApiResponse.<Author>builder()
-                .data(authorService.getAuthorBySlug(slug))
+                .result(authorService.getAuthorBySlug(slug))
                 .build();
     }
 
     @PostMapping
     ApiResponse<Author> createAuthor(@RequestBody AuthorCreationRequest request) {
         return ApiResponse.<Author>builder()
-                .data(authorService.createAuthor(request))
+                .result(authorService.createAuthor(request))
                 .build();
     }
 
     @PutMapping("{authorId}")
     ApiResponse<Author> updateAuthor(@RequestBody AuthorUpdateRequest request, @PathVariable("authorId") String authorId) {
         return ApiResponse.<Author>builder()
-                .data(authorService.updateAuthor(authorId, request))
+                .result(authorService.updateAuthor(authorId, request))
                 .build();
     }
 

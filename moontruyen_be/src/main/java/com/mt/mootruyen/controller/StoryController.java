@@ -9,8 +9,6 @@ import com.mt.mootruyen.service.StoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/stories")
 public class StoryController {
@@ -22,34 +20,34 @@ public class StoryController {
             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
             @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
         return ApiResponse.<PageResponse<Story>>builder()
-                .data(storyService.getAllStories(page,size))
+                .result(storyService.getAllStories(page,size))
                 .build();
     }
     @GetMapping("/id/{storyId}")
     ApiResponse<Story> getStory(@PathVariable String storyId) {
         return ApiResponse.<Story>builder()
-                .data(storyService.getStoryById(storyId))
+                .result(storyService.getStoryById(storyId))
                 .build();
     }
 
     @GetMapping("{slug}")
     ApiResponse<Story> getStoryBySlug(@PathVariable String slug) {
         return ApiResponse.<Story>builder()
-                .data(storyService.getStoryBySlug(slug))
+                .result(storyService.getStoryBySlug(slug))
                 .build();
     }
 
     @PostMapping
     ApiResponse<Story> createStory(@RequestBody StoryCreationRequest request){
         return ApiResponse.<Story>builder()
-                .data(storyService.createStory(request))
+                .result(storyService.createStory(request))
                 .build();
     }
 
     @PutMapping("{storyId}")
     ApiResponse<Story> updateStory(@PathVariable String storyId, @RequestBody StoryUpdateRequest request){
         return ApiResponse.<Story>builder()
-                .data(storyService.updateStory(storyId, request))
+                .result(storyService.updateStory(storyId, request))
                 .build();
     }
 

@@ -18,6 +18,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +36,7 @@ public class StoryService {
     private StoryMapper storyMapper;
 
     public PageResponse<Story> getAllStories(int page, int size){
-        Sort sort = Sort.by("id").descending();
+        Sort sort = Sort.by("updatedAt").descending();
         Pageable pageable = PageRequest.of(page - 1, size, sort);
 
         var pageData = storyRepository.findAll(pageable);
@@ -76,6 +78,7 @@ public class StoryService {
         Story story = storyMapper.toStory(request);
         story.setAuthor(author);
         story.setCategories(categories);
+        story.setCreatedAt(LocalDateTime.now());
         return storyRepository.save(story);
     }
 
@@ -96,6 +99,7 @@ public class StoryService {
         storyMapper.toUpdateStory(request,story);
         story.setAuthor(author);
         story.setCategories(categories);
+        story.setUpdatedAt(LocalDateTime.now());
         return storyRepository.save(story);
     }
     public void deleteStory(String storyId){
