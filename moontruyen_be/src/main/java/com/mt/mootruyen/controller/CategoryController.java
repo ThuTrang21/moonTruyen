@@ -20,35 +20,35 @@ public class CategoryController {
     @GetMapping
     ApiResponse<List<Category>> getAllCategories() {
         return ApiResponse.<List<Category>>builder()
-                .data(categoryService.getAllCategories())
+                .result(categoryService.getAllCategories())
                 .build();
     }
 
     @GetMapping("/id/{categoryId}")
     ApiResponse<Category> getCategoryById(@PathVariable String categoryId) {
         return ApiResponse.<Category>builder()
-                .data(categoryService.getCategoryById(categoryId))
+                .result(categoryService.getCategoryById(categoryId))
                 .build();
     }
 
     @GetMapping("{slug}")
     ApiResponse<Category> getCategoryBySlug(@PathVariable String slug) {
         return ApiResponse.<Category>builder()
-                .data(categoryService.getCategoryBySlug(slug))
+                .result(categoryService.getCategoryBySlug(slug))
                 .build();
     }
 
     @PostMapping
     ApiResponse<Category> createCategory(@RequestBody CategoryCreationRequest request) {
         return ApiResponse.<Category>builder()
-                .data(categoryService.createCategory(request))
+                .result(categoryService.createCategory(request))
                 .build();
     }
 
     @PutMapping("{categoryId}")
     ApiResponse<Category> updateCategory(@RequestBody CategoryUdatingRequest request, @PathVariable("categoryId") String categoryId) {
         return ApiResponse.<Category>builder()
-                .data(categoryService.updateCategory(request, categoryId))
+                .result(categoryService.updateCategory(request, categoryId))
                 .build();
     }
 

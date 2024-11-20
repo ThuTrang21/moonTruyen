@@ -12,6 +12,7 @@ import com.mt.mootruyen.repository.StoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -60,6 +61,7 @@ public class ChapterService {
         chapter.setStory(story);
         chapter.setCreatedAt(LocalDateTime.now());
         chapter.setUpdatedAt(LocalDateTime.now());
+        story.setUpdatedAt(LocalDateTime.now());
         return chapterRepository.save(chapter);
     }
 
@@ -69,7 +71,6 @@ public class ChapterService {
         chapter.setContent(request.getContent());
         chapter.setChapterNumber(request.getChapterNumber());
         chapter.setUpdatedAt(LocalDateTime.now());
-
         return chapterRepository.save(chapter);
     }
 
