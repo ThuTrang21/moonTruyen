@@ -8,21 +8,24 @@ import com.mt.mootruyen.exception.ErrorCode;
 import com.mt.mootruyen.mapper.AuthorMapper;
 import com.mt.mootruyen.repository.AuthorRepository;
 import com.mt.mootruyen.repository.StoryRepository;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AuthorService {
-    @Autowired
-    private AuthorRepository authorRepository;
+    AuthorRepository authorRepository;
 
-    @Autowired
-    private AuthorMapper authorMapper;
+    AuthorMapper authorMapper;
 
-    @Autowired
-    private StoryRepository storyRepository;
+    StoryRepository storyRepository;
 
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();

@@ -8,18 +8,22 @@ import com.mt.mootruyen.exception.AppException;
 import com.mt.mootruyen.exception.ErrorCode;
 import com.mt.mootruyen.mapper.CategoryMapper;
 import com.mt.mootruyen.repository.CategoryRepository;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class CategoryService {
-    @Autowired
-    private CategoryRepository categoryRepository;
 
-    @Autowired
-    private CategoryMapper categoryMapper;
+    CategoryRepository categoryRepository;
+
+    CategoryMapper categoryMapper;
 
     public List<Category> getAllCategories(){
         return categoryRepository.findAll();

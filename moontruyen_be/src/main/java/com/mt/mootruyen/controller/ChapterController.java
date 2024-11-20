@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/chapters")
+@RequestMapping("/chapters")
 public class ChapterController {
     @Autowired
     private ChapterService chapterService;
