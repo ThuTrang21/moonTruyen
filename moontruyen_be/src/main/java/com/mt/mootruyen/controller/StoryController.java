@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/stories")
+@RequestMapping("/stories")
 public class StoryController {
     @Autowired
     private StoryService storyService;

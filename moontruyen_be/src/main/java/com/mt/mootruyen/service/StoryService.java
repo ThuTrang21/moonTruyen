@@ -12,6 +12,9 @@ import com.mt.mootruyen.mapper.StoryMapper;
 import com.mt.mootruyen.repository.AuthorRepository;
 import com.mt.mootruyen.repository.CategoryRepository;
 import com.mt.mootruyen.repository.StoryRepository;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,13 +27,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class StoryService {
-    @Autowired
-    private StoryRepository storyRepository;
-    @Autowired
-    private CategoryRepository categoryRepository;
-    @Autowired
-    private AuthorRepository authorRepository;
+
+    StoryRepository storyRepository;
+
+    CategoryRepository categoryRepository;
+
+    AuthorRepository authorRepository;
 
     @Autowired
     private StoryMapper storyMapper;

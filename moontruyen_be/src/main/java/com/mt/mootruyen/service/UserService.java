@@ -7,22 +7,28 @@ import com.mt.mootruyen.exception.AppException;
 import com.mt.mootruyen.exception.ErrorCode;
 import com.mt.mootruyen.mapper.UserMapper;
 import com.mt.mootruyen.repository.UserRepository;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
-    @Autowired
-    private UserMapper userMapper;
+    UserMapper userMapper;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+
     }
 
     public User getUserById(String userId) {
@@ -34,12 +40,16 @@ public class UserService {
             throw new AppException(ErrorCode.USERNAME_EXISTED);
         }
         User user = userMapper.toUser(request);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setCreatedAt(LocalDateTime.now());
         return userRepository.save(user);
     }
 
     public User updateUser(String userId ,UserUpdatingRequest request){
         User user = getUserById(userId);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
         userMapper.toUpdateUser(request, user);
         return userRepository.save(user);
     }

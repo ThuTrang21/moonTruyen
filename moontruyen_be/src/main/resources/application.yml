@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /moontruyen
+    context-path: /moontruyen/api
 
 spring:
   datasource:
@@ -12,3 +12,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+jwt:
+  signerKey: "ex6YyC9slbzxkFKTm59P4FzV6XpkT0/vCnqHsOHMUa+sltd/OZ1xYYTY3CnCvAwm"

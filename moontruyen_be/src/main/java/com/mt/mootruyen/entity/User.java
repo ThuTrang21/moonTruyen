@@ -3,7 +3,7 @@ package com.mt.mootruyen.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,6 +27,7 @@ public class User {
     private String email;
     private String avatar;
     private String role;
+    @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
