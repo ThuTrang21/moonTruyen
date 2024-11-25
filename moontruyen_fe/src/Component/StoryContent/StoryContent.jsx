@@ -43,8 +43,8 @@ export const StoryContent = () => {
         </Breadcrumbs>
       </div>
       <div className="py-5 dark:text-white">
-        <div className=" flex flex-col items-center  ">
-          <p className=" text-2xl uppercase font-semibold">
+        <div className=" flex flex-col items-center ">
+          <p className=" text-2xl uppercase font-semibold text-center">
             Xuyên thành bạch nguyệt quang
           </p>
           <span className="py-2">Chương 1</span>
@@ -59,8 +59,8 @@ export const StoryContent = () => {
         </div>
 
 
-        <div className="flex justify-center bg-slate-300 mx-20 shadow-md bg-opacity-5 px-16 py-3 dark:my-10">
-          <pre className="whitespace-normal break-words p-4 overflow-auto max-w-full text-justify"
+        <div className="flex justify-center bg-slate-300 mx-10 shadow-md bg-opacity-5 dark:my-10 px-5 py-3">
+          <pre className="whitespace-normal break-words overflow-auto max-w-full text-justify"
           style={{
             fontFamily:fontFamily,
             fontSize:fontSize
