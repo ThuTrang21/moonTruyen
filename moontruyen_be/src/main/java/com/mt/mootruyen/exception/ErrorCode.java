@@ -17,6 +17,7 @@ public enum ErrorCode {
     USER_NOT_FOUND(404,"User not found", HttpStatus.NOT_FOUND),
     USERNAME_EXISTED(409,"Username already existed", HttpStatus.CONFLICT),
     UNAUTHENTICATED(401,"Unauthenticated", HttpStatus.UNAUTHORIZED),
+    UNCATEGORIZED_EXCEPTION(999, "Uncategorized exception", HttpStatus.INTERNAL_SERVER_ERROR);
     ;
     ErrorCode(int code, String message, HttpStatusCode statusCode){
         this.code = code;

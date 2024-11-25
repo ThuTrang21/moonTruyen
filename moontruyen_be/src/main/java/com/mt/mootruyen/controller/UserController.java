@@ -3,43 +3,63 @@ package com.mt.mootruyen.controller;
 import com.mt.mootruyen.dto.request.UserCreationRequest;
 import com.mt.mootruyen.dto.request.UserUpdatingRequest;
 import com.mt.mootruyen.dto.response.ApiResponse;
+import com.mt.mootruyen.dto.response.UserResponse;
 import com.mt.mootruyen.entity.User;
 import com.mt.mootruyen.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
+@Slf4j
+@RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserController {
-    @Autowired
-    private UserService userService;
+
+    UserService userService;
 
     @GetMapping
-    ApiResponse<List<User>> getAllUsers(){
-        return ApiResponse.<List<User>>builder()
+    ApiResponse<List<UserResponse>> getAllUsers(){
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        log.info("Username: {}", authentication.getName());
+        authentication.getAuthorities().forEach(grantedAuthority -> log.info(grantedAuthority.getAuthority()));
+
+        return ApiResponse.<List<UserResponse>>builder()
                 .result(userService.getAllUsers())
                 .build();
     }
 
     @GetMapping("/id/{userId}")
-    ApiResponse<User> getUserById(@PathVariable String userId){
-        return ApiResponse.<User>builder()
+    ApiResponse<UserResponse> getUserById(@PathVariable String userId){
+        return ApiResponse.<UserResponse>builder()
                 .result(userService.getUserById(userId))
                 .build();
     }
 
+    @GetMapping("/myinfo")
+    ApiResponse<UserResponse> getMyInfo(){
+        return ApiResponse.<UserResponse>builder()
+                .result(userService.getMyInfo())
+                .build();
+    }
+
     @PostMapping
-    ApiResponse<User> createUser(@RequestBody UserCreationRequest request){
-        return ApiResponse.<User>builder()
+    ApiResponse<UserResponse> createUser(@RequestBody UserCreationRequest request){
+        return ApiResponse.<UserResponse>builder()
                 .result(userService.createUser(request))
                 .build();
     }
 
     @PutMapping("{userId}")
-    ApiResponse<User> updateUser(@PathVariable String userId, @RequestBody UserUpdatingRequest request){
-        return ApiResponse.<User>builder()
+    ApiResponse<UserResponse> updateUser(@PathVariable String userId, @RequestBody UserUpdatingRequest request){
+        return ApiResponse.<UserResponse>builder()
                 .result(userService.updateUser(userId, request))
                 .build();
     }
