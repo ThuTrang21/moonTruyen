@@ -129,11 +129,10 @@ export const Navbar = () => {
           {!true ? (
             <Avatar>T</Avatar>
           ) : (
-            <IconButton>
+            <IconButton onClick={() => navigate("/account/login")}>
               <PersonIcon
                 className="dark:text-white"
-                sx={{ fontSize: "33px" }}
-              />
+                sx={{ fontSize: "33px" }}/>
             </IconButton>
           )}
          
