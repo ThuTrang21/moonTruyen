@@ -12,7 +12,7 @@ const StoryCard = () => {
   return (
     <Card 
     onClick={handleNavigateToStory}
-    className="w-[7rem] lg:w-[10rem] cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg will-change-transform">
+    className="w-[9rem] lg:w-[10rem] cursor-pointer transition-transform transform hover:scale-105 hover:shadow-lg will-change-transform">
       <div className="relative">
         <img
           className="w-full lg:h-[16rem] rounded-t-md object-cover"

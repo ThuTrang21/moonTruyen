@@ -4,6 +4,7 @@ import { StoryDetail } from '../Component/Story/StoryDetail';
 import { Navbar } from '../Component/Navbar/Navbar';
 import Home from '../Component/Home/Home';
 import Footer from '../Component/Footer/Footer';
+import { StoryContent } from '../Component/StoryContent/StoryContent';
 
 const CustomerRoute = () => {
   return (
@@ -15,6 +16,7 @@ const CustomerRoute = () => {
           <Route path='/' element={<Home/>}/>
           {/* <Route path='/account/:register' element={<Home/>}/> */}
           <Route path='/title' element={<StoryDetail/>}/>
+          <Route path='/title/chap/chuong' element={<StoryContent/>}/>
         </Routes>
         </div>
         
