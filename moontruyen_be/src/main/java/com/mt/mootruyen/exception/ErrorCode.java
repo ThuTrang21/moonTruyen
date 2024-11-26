@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatusCode;
 
 @Getter
 public enum ErrorCode {
+    UNCATEGORIZED_EXCEPTION(500, "Uncategorized exception", HttpStatus.INTERNAL_SERVER_ERROR),
     STORY_NOT_FOUND(404,"Story not found", HttpStatus.NOT_FOUND),
     STORY_EXISTED(409,"Story already existed", HttpStatus.CONFLICT),
     AUTHOR_NOT_FOUND(404,"Author not found", HttpStatus.NOT_FOUND),
@@ -17,7 +18,7 @@ public enum ErrorCode {
     USER_NOT_FOUND(404,"User not found", HttpStatus.NOT_FOUND),
     USERNAME_EXISTED(409,"Username already existed", HttpStatus.CONFLICT),
     UNAUTHENTICATED(401,"Unauthenticated", HttpStatus.UNAUTHORIZED),
-    UNCATEGORIZED_EXCEPTION(999, "Uncategorized exception", HttpStatus.INTERNAL_SERVER_ERROR);
+    UNAUTHORIZED(403, "You do not have permission", HttpStatus.FORBIDDEN),
     ;
     ErrorCode(int code, String message, HttpStatusCode statusCode){
         this.code = code;

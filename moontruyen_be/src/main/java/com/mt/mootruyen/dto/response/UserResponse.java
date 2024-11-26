@@ -1,6 +1,7 @@
 package com.mt.mootruyen.dto.response;
 
 
+import com.mt.mootruyen.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,7 @@ public class UserResponse {
     private String username;
     private String email;
     private String avatar;
-    private Set<String> roles;
+    private Set<Role> roles;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
