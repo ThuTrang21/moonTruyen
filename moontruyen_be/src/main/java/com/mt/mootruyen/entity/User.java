@@ -5,7 +5,6 @@ import lombok.*;
 
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -28,7 +27,10 @@ public class User {
 
     private String email;
     private String avatar;
-    private Set<String> roles;
+
+    @ManyToMany
+    private Set<Role> roles;
+    
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 
