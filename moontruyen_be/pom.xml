@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mt</groupId>
-	<artifactId>moontruyen</artifactId>
+	<artifactId>mootruyen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>moontruyen</name>
-	<description>RestFulAPI MoonnTruyen</description>
+	<name>mootruyen</name>
+	<description>RestFulAPI MoonTruyen</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -41,14 +41,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-crypto</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
