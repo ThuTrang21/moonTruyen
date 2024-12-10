@@ -1,17 +1,36 @@
 server:
   port: 8080
   servlet:
+<<<<<<< HEAD
     context-path: /moontruyen
 
+=======
+<<<<<<< HEAD
+    context-path:
+=======
+    context-path: /moontruyen
+>>>>>>> 597fa535633348a20dae44cff428295a05917136
+>>>>>>> 57e82c1153024e67a01f82fb27b33565467e3fc9
 
 spring:
   datasource:
     url: "jdbc:mysql://localhost:3306/moontruyen"
+<<<<<<< HEAD
 
     driverClassName: "com.mysql.cj.jdbc.Driver"
     username: ${DBMS_USERNAME:root}
     password: ${DBMS_PASSWORD:}
 
+=======
+<<<<<<< HEAD
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: ${DBMS_USERNAME:root}
+    password: ${DBMS_PASSWORD:}
+=======
+    username: root
+    password: moontruyen
+>>>>>>> 597fa535633348a20dae44cff428295a05917136
+>>>>>>> 57e82c1153024e67a01f82fb27b33565467e3fc9
   jpa:
     hibernate:
       ddl-auto: update
