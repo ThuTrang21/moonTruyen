@@ -26,7 +26,7 @@ const TopStory = () => {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
                 variant="fullWidth"
-                indicatorColor="secondary"
+                indicatorColor="primary"
                 textColor="white"
                 className="dark:text-white"
               >

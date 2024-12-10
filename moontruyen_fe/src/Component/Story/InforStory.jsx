@@ -7,6 +7,7 @@ import StarIcon from "@mui/icons-material/Star";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { useNavigate } from "react-router-dom";
 
 const labels = {
   1: "Không còn gì để nói....",
@@ -28,6 +29,7 @@ const getLabelText=(value)=> {
 const theloai = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 const InforStory = () => {
+  const navigate=useNavigate();
   const [value, setValue] = useState(8);
   const [hover, setHover] = useState(-1);
   const [showFullContent, setShowFullContent] = useState(false);
@@ -50,6 +52,12 @@ const InforStory = () => {
 const handleGenre=()=>{
 
 }
+
+
+const handleNavigateToContent=()=>{
+  navigate('/title/chap/chuong');
+};
+
   return (
     <div>
       <div className="flex lg:hidden justify-center items-center h-[4rem]">
@@ -66,7 +74,7 @@ const handleGenre=()=>{
               />
             </div>
             <div className="flex pt-10 gap-5">
-              <Button>
+              <Button onClick={handleNavigateToContent}>
                 <PlayCircleIcon /> Đọc truyện
               </Button>
               <Button>

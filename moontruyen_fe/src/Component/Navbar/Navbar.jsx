@@ -12,20 +12,19 @@ import { MobMenu } from "./MobMenu";
 import DarkMode from "./DarkMode";
 import { useNavigate } from "react-router-dom";
 
-export const Navbar = () => {
-  const navigate=useNavigate();
+export const Navbar = ({ theme, setTheme }) => {
+  const navigate = useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
   const navbarRef = useRef(null);
 
   const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index); 
+    setOpenIndex(openIndex === index ? null : index);
   };
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
-        setOpenIndex(null); 
+        setOpenIndex(null);
       }
     };
 
@@ -80,7 +79,10 @@ export const Navbar = () => {
     },
   ];
   return (
-    <div ref={navbarRef} className="relative py-5 bg-primary flex items-center h-16 inset-0 dark:bg-black dark:text-white duration-200">
+    <div
+      ref={navbarRef}
+      className="relative py-5 bg-primary flex items-center h-16 inset-0 dark:bg-black dark:text-white duration-200"
+    >
       <div className="px-3.5 flex items-center mx-auto w-full max-w-7xl">
         <div className="flex items-center gap-x-3 z-[999] relative">
           <img
@@ -124,24 +126,32 @@ export const Navbar = () => {
           </div>
 
           <div>
-            <DarkMode />
+          <DarkMode theme={theme} setTheme={setTheme} />
           </div>
-          {!true ? (
-            <Avatar>T</Avatar>
+          {true ? (
+            <Avatar
+              onClick={() => navigate("/account/profile")}
+              className="cursor-pointer"
+              sizes="small"
+            >
+              <img src="https://down-vn.img.susercontent.com/file/2258ea71783dd3f4d5e729437f24c406_tn" alt="" />
+            </Avatar>
           ) : (
-            <IconButton>
+            <IconButton
+              onClick={() => navigate("/user/login")}
+              className="cursor-pointer"
+            >
               <PersonIcon
                 className="dark:text-white"
                 sx={{ fontSize: "33px" }}
               />
             </IconButton>
           )}
-         
         </div>
       </div>
       <div className="lg:hidden z-10">
-            <MobMenu links={links} />
-          </div>
+        <MobMenu links={links} />
+      </div>
     </div>
   );
 };

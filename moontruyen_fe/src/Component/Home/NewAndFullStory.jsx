@@ -45,7 +45,7 @@ const NewAndFullStory = () => {
           Truyện Full
         </button>
       </div>
-      <div className="mt-6 flex pl-5 flex-wrap items-center justify-start gap-3 ">
+      <div className="mt-6 flex pl-5 flex-wrap items-center justify-stretch gap-3 ">
         {activeTab === "new"
           ? displayStories.map((item) => <StoryCard />)
           : displayStories.map((item) => <StoryCard />)}
