@@ -11,8 +11,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import { MobMenu } from "./MobMenu";
 import DarkMode from "./DarkMode";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Navbar = ({ theme, setTheme }) => {
+  const {auth}=useSelector((store)=>store);
   const navigate = useNavigate();
   const [openIndex, setOpenIndex] = useState(null);
   const navbarRef = useRef(null);
@@ -128,7 +130,8 @@ export const Navbar = ({ theme, setTheme }) => {
           <div>
           <DarkMode theme={theme} setTheme={setTheme} />
           </div>
-          {true ? (
+         <div>
+         {auth.authenticated ? (
             <Avatar
               onClick={() => navigate("/account/profile")}
               className="cursor-pointer"
@@ -147,6 +150,7 @@ export const Navbar = ({ theme, setTheme }) => {
               />
             </IconButton>
           )}
+         </div>
         </div>
       </div>
       <div className="lg:hidden z-10">

@@ -6,6 +6,8 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import HistoryIcon from "@mui/icons-material/History";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { IconButton } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { logout } from "../../State/Authentidation/Action";
 const menu = [
   { title: "Quản lý tài khoản", icon: <PersonIcon />, url: "profile" },
   { title: "Tủ sách cá nhân", icon: <LibraryBooksIcon />, url: "library" },
@@ -15,8 +17,10 @@ const menu = [
 
 const ProfileNavigation = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleNavigate = (item) => {
     if (item.title === "Đăng xuất") {
+      dispatch(logout());
       navigate("/");
     } else {
       navigate(`/account/${item.url}`);
