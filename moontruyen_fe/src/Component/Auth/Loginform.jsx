@@ -47,7 +47,7 @@ export const Loginform = () => {
       </Formik>
       <Typography variant="body2" align="center" sx={{ mt: 3 }}>
         <p className="text-gray-500">Bạn chưa có tài khoản?  </p>
-        <span onClick={() => navigate("/account/register")}
+        <span onClick={() => navigate("/user/register")}
             className="text-red-400 cursor-pointer"
             >
           Đăng ký

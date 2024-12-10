@@ -7,7 +7,7 @@ const TopStoryItem = () => {
     navigate("/title")
   }
   return (
-    <div className="flex flex-wrap items-center py-3 transition-transform transform hover:scale-110  will-change-transform cursor-pointer"
+    <div className="flex flex-wrap items-center py-3 transition-transform duration-500 ease-in-out transform hover:scale-105  will-change-transform cursor-pointer"
     onClick={handleNavigateToStory}>
       <div className="rounded-full bg-orange-300 p-[6px] px-3 text-white text-sm">
         1

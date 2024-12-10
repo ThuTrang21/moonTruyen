@@ -27,12 +27,12 @@ export const Auth = () => {
       <Modal
         onClose={handleOnClose}
         open={
-          location.pathname === "/account/register" ||
-          location.pathname === "/account/login"
+          location.pathname === "/user/register" ||
+          location.pathname === "/user/login"
         }
       >
         <Box sx={style}>
-          {location.pathname === "/account/register" ? (
+          {location.pathname === "/user/register" ? (
             <Registerform />
           ) : (
             <Loginform />

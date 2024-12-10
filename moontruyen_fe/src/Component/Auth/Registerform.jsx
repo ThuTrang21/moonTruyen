@@ -59,7 +59,7 @@ export const Registerform = () => {
       </Formik>
       <Typography variant="body2" align="center" sx={{ mt: 3 }}>
         <p className="text-gray-500">Nếu bạn có tài khoản?</p>
-        <span size="small" onClick={() => navigate("/account/login")}
+        <span size="small" onClick={() => navigate("/user/login")}
              className="text-red-400 cursor-pointer"
             >
           Đăng nhập
