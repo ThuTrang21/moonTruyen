@@ -40,7 +40,7 @@ export const MobMenu = ({ links }) => {
   };
 
   return (
-    <div >
+    <div>
       <button onClick={toggleDrawer}>
         {open ? <CloseIcon /> : <MenuIcon />}
       </button>
@@ -48,8 +48,8 @@ export const MobMenu = ({ links }) => {
         initial="exit"
         animate={open ? "enter" : "exit"}
         variants={menuDrawer}
-        className="fixed left-0 right-0 top-16  overflow-y-auto bg-[#e8f9fb] backdrop-blur text-gray-500 p-6
-        dark:bg-black dark:text-white "
+        className="absolute left-0 top-[4rem] overflow-y-auto w-full bg-[#e8f9fb] backdrop-blur text-gray-500 p-6
+  dark:bg-black dark:text-white z-0"
         style={{
           maxHeight: "calc(100vh - 64px)",
         }}
@@ -84,7 +84,10 @@ export const MobMenu = ({ links }) => {
                           key={name}
                           className="p-2 flex items-center hover:bg-white/5 rounded-md cursor-pointer gap-x-2"
                         >
-                          <IconButton className=" dark:text-white" size="17"> {icon}</IconButton>
+                          <IconButton className=" dark:text-white" size="17">
+                            {" "}
+                            {icon}
+                          </IconButton>
                           <span>{name}</span>
                         </li>
                       ))}
@@ -101,8 +104,7 @@ export const MobMenu = ({ links }) => {
             placeholder="Nhập Tên Truyện..."
             className=" dark:text-black w-full group-hover:w-full transition-all duration-300 rounded-full border border-gray-300 px-3 py-1 focus:outline-none focus:border-1 focus:border-blue-400"
           />
-             <SearchIcon className="text-gray-500 group-hover:text-primary absolute right-3 -translate-x-5 translate-y-1"/>
-
+          <SearchIcon className="text-gray-500 group-hover:text-primary absolute right-3 -translate-x-5 translate-y-1" />
         </div>
       </motion.div>
     </div>
